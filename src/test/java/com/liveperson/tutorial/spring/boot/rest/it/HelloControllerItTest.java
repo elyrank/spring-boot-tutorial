@@ -1,5 +1,6 @@
-package com.liveperson.tutorial.spring.boot.rest;
+package com.liveperson.tutorial.spring.boot.rest.it;
 
+import com.liveperson.tutorial.spring.boot.rest.Application;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
