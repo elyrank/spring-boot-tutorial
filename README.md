@@ -10,7 +10,7 @@ spring boot tutorial
 # step 10
 deploying spring boot app
 spring boot has the capability to run the jar as a script - to be able to run as a service.
-you can pass arguments to it like JAVA_HOME, JAVA_OPTS and many nore.
+you can pass arguments to it like JAVA_HOME, JAVA_OPTS and many more.
 more details here:
 http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/deployment-install.html#deployment-service
 
