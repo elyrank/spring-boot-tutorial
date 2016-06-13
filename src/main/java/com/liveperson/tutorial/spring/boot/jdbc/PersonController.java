@@ -1,6 +1,5 @@
 package com.liveperson.tutorial.spring.boot.jdbc;
 
-import com.liveperson.tutorial.spring.boot.jdbc.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +16,7 @@ public class PersonController {
     @Autowired
     private PersonRepository personRepository;
 
-    @RequestMapping("/my/persons")
+    @RequestMapping("/my-persons")
     Collection<Person> getPersons() {
         return personRepository.findAll();
     }
