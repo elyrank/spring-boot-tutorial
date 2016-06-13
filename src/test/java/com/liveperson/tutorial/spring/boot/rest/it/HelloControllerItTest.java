@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author elyran
@@ -43,6 +44,6 @@ public class HelloControllerItTest {
     @Test
     public void getHello() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-        assertEquals(response.getBody(), "Greetings from Spring Boot! ");
+        assertTrue(response.getBody().startsWith("Greetings from Spring Boot!"));
     }
 }
