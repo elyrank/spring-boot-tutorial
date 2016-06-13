@@ -103,6 +103,18 @@ JDBC
 ```
 git checkout step7
 ```
+have a look at the Person pojo - it is annotated as an Entity
+have a look at the PersonRepository - it is an interface for working with Repositories (no implementation class needed! - spring boot does that for you)
+
+Task 1:
+implement Rest request get by ID in PersonController
+
+Task 2:
+implement CRUD , paging, limit, search by name.
+what?!? how is anyone supposed to do all that in a 1 hour tutorial?? 
+lets proceed to the next step to see...
+
+# Step 8
 
 
 # step 10
