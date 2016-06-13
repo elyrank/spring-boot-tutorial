@@ -97,24 +97,70 @@ by default - spring boot has its own logback configuration
 git checkout step6
 ```
 added logback.xml but still using spring defaults - by including them
-
+```  
+<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+<include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+```
 # Step 7
 JDBC
 ```
 git checkout step7
 ```
-have a look at the Person pojo - it is annotated as an Entity
-have a look at the PersonRepository - it is an interface for working with Repositories (no implementation class needed! - spring boot does that for you)
+this will enable us to access a DB (fully preconfigured by spring boot)
+by creating a pojo as an Entity, and creating an interface of Repository (no implementation class needed!) 
+
+add dependency for the JPA starter:
+```
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+```
+
+and for H2 db:
+```
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+```
+have a look at Person pojo & PersonRepository interace
+
+custom health check: have a look at H2Health - it implements a HealthIndicator and can tell the service when this component is UP or DOWN
+http://localhost:8090/health
 
 Task 1:
-implement Rest request get by ID in PersonController
+implement GET by id as a rest operation in PersonController
 
-Task 2:
-implement CRUD , paging, limit, search by name.
-what?!? how is anyone supposed to do all that in a 1 hour tutorial?? 
-lets proceed to the next step to see...
+Task 2: implement all CRUD operations, paging,  page size , search by name ,add links - self , prev , next.
+what??? how is anyone supposed to implement all that in 1 hour tutorial?? 
+lets wait with this task for the next step...
 
 # Step 8
+JPA REST 
+Spring boot has built in support to "Restify" the repository
+
+add this dependency:
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-rest</artifactId>
+</dependency>
+```
+add @RepositoryRestResource to our PersonRepository
+and @Param("name") to the name parameter in method findPersonByName
+
+have a look at all the available REST operations:
+http://localhost:8090/persons/
+
+#Step 9
+custom metric
+
+when we looked at the rest resources - we saw we have metrics for every request, but what about a metric for websocket?
+lets try to add a custom metric for messages count.
 
 
 # step 10
@@ -125,14 +171,13 @@ more details here:
 http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/deployment-install.html#deployment-service
 
 
-add this snippet to your deplyment app:
+add this snippet to your deployment app:
 ```
 file {'/etc/rc.d/init.d/LPBootApp':
     ensure => 'link',
-    target => "/liveperson/code/myBootApp/myBootApp-1.0.0.0.jar",
+    target => "/liveperson/code/<myBootApp>/<myBootApp-1.0.0.0.jar>",
   }
 ```  
-  
   
 this will create a service that can get commands like start stop status & restart
 
