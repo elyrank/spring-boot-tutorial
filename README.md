@@ -176,7 +176,31 @@ and @Param("name") to the name parameter in method findPersonByName
 have a look at all the available REST operations:
 http://localhost:8090/persons/
 
-#Step 9
+# Step 9
+using liveperson's parent pom
+```
+git checkout step9
+```
+
+since we want to use our own parent pom - we need to take all the dependncies by imporing spring boot pom instead of using it as parent.
+use the folloing:
+```
+<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>1.3.5.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
+
+
+#Step 10
 deploying spring boot app
 spring boot has the capability to run the jar as a script - to be able to run as a service.
 you can pass arguments to it like JAVA_HOME, JAVA_OPTS and many more.
