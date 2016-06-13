@@ -86,6 +86,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.liveperson.tutorial.spring.boot.Application</mainClass>
+                    <executable>true</executable>
+                </configuration>
             </plugin>
             <!--override liveperosn's compiler plugin to use java 8-->
             <plugin>
