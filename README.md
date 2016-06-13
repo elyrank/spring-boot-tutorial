@@ -1,5 +1,4 @@
-# spring-boot-tutorial
-spring boot tutorial
+# spring-boot-tutorial - "Bootiful" Applications with Spring Boot
 
 
 # step 1
@@ -69,9 +68,41 @@ in WsConfig we define the handlers, and WsHandler is our handler.
 
 task:
 implement a welcome message when connecting.
-hint - implement method afterConnectionEstablished
 
-        
+- hint: implement method afterConnectionEstablished
+
+# Step 4
+```
+git checkout step4
+```
+websocket - welcome message
+
+# Step 5
+change implementation to Jetty
+```
+git checkout step5
+```
+all we need to do to change to implementation is add the right dependency:
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jetty</artifactId>
+</dependency>
+```
+
+# Step 6
+log configuration
+by default - spring boot has its own logback configuration
+```
+git checkout step6
+```
+added logback.xml but still using spring defaults - by including them
+
+# Step 7
+JDBC
+```
+git checkout step7
+```
 
 
 # step 10
