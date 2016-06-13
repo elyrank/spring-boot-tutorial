@@ -75,7 +75,23 @@ implement a welcome message when connecting.
 ```
 git checkout step4
 ```
-websocket - welcome message
+websocket - welcome message & custom counter
+metrics are cool, by for websocket we don't have a built in metric for number of messages
+so lets add one:
+
+lets just "get this service from somewhere":
+```
+@Autowired
+CounterService counterService;
+```
+
+and use it:
+```
+counterService.increment("ws.total.messages");
+```
+
+see the result in the metrics:
+http://localhost:8090/metrics
 
 # Step 5
 change implementation to Jetty
@@ -157,19 +173,13 @@ have a look at all the available REST operations:
 http://localhost:8090/persons/
 
 #Step 9
-custom metric
-
-when we looked at the rest resources - we saw we have metrics for every request, but what about a metric for websocket?
-lets try to add a custom metric for messages count.
-
-
-# step 10
 deploying spring boot app
 spring boot has the capability to run the jar as a script - to be able to run as a service.
 you can pass arguments to it like JAVA_HOME, JAVA_OPTS and many more.
 more details here:
 http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/deployment-install.html#deployment-service
 
+this is not part of the actual tutorial - just for general reference
 
 add this snippet to your deployment app:
 ```
