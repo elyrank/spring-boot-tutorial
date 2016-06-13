@@ -23,6 +23,14 @@ public class WsHandler extends TextWebSocketHandler {
 
 
     @Override
+    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        super.afterConnectionEstablished(session);
+        session.sendMessage(new TextMessage("Welcome to my  ws boot app!"));
+        logger.info("connection established: {}", session);
+    }
+
+
+    @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         logger.info("received message: {}", message);
         session.sendMessage(new TextMessage(wsMessage + " -- " + message.getPayload()));
