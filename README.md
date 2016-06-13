@@ -152,6 +152,7 @@ Task 1:
 implement GET by id as a rest operation in PersonController
 
 Task 2: implement all CRUD operations, paging,  page size , search by name ,add links - self , prev , next.
+
 what??? how is anyone supposed to implement all that in 1 hour tutorial?? 
 lets wait with this task for the next step...
 
