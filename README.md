@@ -3,8 +3,75 @@ spring boot tutorial
 
 
 # step 1
+basic app with rest
 
+checkout step 1:
+```
+git checkout step1
+```
 
+In this step we have a basic web application with a rest resource
+run application.java and open your browser: 
+http://localhost:8080/
+
+note that the server runs automatically on port 8080 , and using embedded tomcat.
+to change the port - uncomment the server.port property in applicaion.properties
+
+unit test:
+we have a unit test for this rest resource: HelloControllerTest
+MockMvc is used to test the rest resources without loading the whole server
+
+Integration test:
+HelloControllerItTest
+in this test we start the server with a random port:
+```
+@IntegrationTest({"server.port=0"}) //generate a random port
+```
+and we can use the random port with this property:
+
+```
+@Value("${local.server.port}") //get the generated port
+private int port;
+```
+
+now by using Spring's Http Client - RestTemplate
+we can send a request to our resuorce.
+
+# step 2
+actuator
+
+checkout step 2:
+```
+git checkout step2
+```
+
+we added this dependency in the pom:
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+The actuator provides production ready features to help you monitor and manage your application
+for example, try running the following resources : /metrics /health /mappings /beans
+all this data that is also available via JMX
+
+# step 3
+websocket
+
+checkout step 3:
+```
+git checkout step3
+```
+two classes added: WsHandler & WsConfig
+in WsConfig we define the handlers, and WsHandler is our handler.
+
+task:
+implement a welcome message when connecting.
+hint - implement method afterConnectionEstablished
+
+        
 
 
 # step 10
@@ -16,11 +83,12 @@ http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/deploymen
 
 
 add this snippet to your deplyment app:
-
+```
 file {'/etc/rc.d/init.d/LPBootApp':
     ensure => 'link',
     target => "/liveperson/code/myBootApp/myBootApp-1.0.0.0.jar",
   }
+```  
   
   
 this will create a service that can get commands like start stop status & restart
