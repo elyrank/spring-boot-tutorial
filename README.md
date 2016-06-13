@@ -66,6 +66,9 @@ git checkout step3
 two classes added: WsHandler & WsConfig
 in WsConfig we define the handlers, and WsHandler is our handler.
 
+use this page to test ws:
+http://www.websocket.org/echo.html
+
 task:
 implement a welcome message when connecting.
 
