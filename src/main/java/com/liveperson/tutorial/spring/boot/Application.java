@@ -44,9 +44,4 @@ public class Application {
 
 
 
-    @Bean
-    public ServerEndpointExporter serverEndpointExporter() {
-        return new ServerEndpointExporter();
-    }
-
 }
