@@ -1,4 +1,4 @@
-package com.liveperson.tutorial.spring.boot.jdbc.pojo;
+package com.liveperson.tutorial.spring.boot.jdbc;
 
 
 import javax.persistence.Entity;

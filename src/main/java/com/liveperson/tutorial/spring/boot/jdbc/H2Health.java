@@ -1,6 +1,5 @@
 package com.liveperson.tutorial.spring.boot.jdbc;
 
-import com.liveperson.tutorial.spring.boot.jdbc.pojo.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;

@@ -1,13 +1,12 @@
 package com.liveperson.tutorial.spring.boot;
 
 import com.liveperson.tutorial.spring.boot.jdbc.PersonRepository;
-import com.liveperson.tutorial.spring.boot.jdbc.pojo.Person;
+import com.liveperson.tutorial.spring.boot.jdbc.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
