@@ -1,5 +1,10 @@
 # spring-boot-tutorial - "Bootiful" Applications with Spring Boot
 
+## Run
+if you want ot run the server from command line, run maven package and run the jar
+```
+mvn package
+java -jar spring-boot-tutorial-0.1.0.jar
 
 # step 1
 basic app with rest
@@ -15,6 +20,8 @@ http://localhost:8080/
 
 note that the server runs automatically on port 8080 , and using embedded tomcat.
 to change the port - uncomment the server.port property in applicaion.properties
+restart the server. now we use port 8090:
+http://localhost:8090/
 
 unit test:
 we have a unit test for this rest resource: HelloControllerTest
