@@ -5,6 +5,7 @@ if you want ot run the server from command line, run maven package and run the j
 ```
 mvn package
 java -jar spring-boot-tutorial-0.1.0.jar
+```
 
 # step 1
 basic app with rest
