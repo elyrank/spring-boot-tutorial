@@ -61,8 +61,8 @@ we added this dependency in the pom:
 ```
 
 The actuator provides production ready features to help you monitor and manage your application
-for example, try running the following resources : /metrics /health /mappings /beans
-all this data that is also available via JMX
+for example, try running the following resources : http://localhost:8090/metrics http://localhost:8090/health http://localhost:8090/mappings http://localhost:8090/beans
+all this data is also available via JMX
 
 # step 3
 websocket
@@ -90,7 +90,7 @@ websocket - welcome message & custom counter
 metrics are cool, by for websocket we don't have a built in metric for number of messages
 so lets add one:
 
-lets just "get this service from somewhere":
+lets just autowire the service to get it:
 ```
 @Autowired
 CounterService counterService;
